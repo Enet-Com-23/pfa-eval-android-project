@@ -24,7 +24,7 @@ jobs:
           java-version: '8'
 
       - name: Run instrumented tests
-        run: ./gradlew app:connectedAndroidTest
+        run: ./gradlew build app:connectedAndroidTest
         continue-on-error: true
 
       - name: Upload test report
