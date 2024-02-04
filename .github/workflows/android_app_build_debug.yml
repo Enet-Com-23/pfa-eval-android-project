@@ -44,5 +44,5 @@ jobs:
         run: ./${{env.ANDROID_APP_PATH}}/gradlew assembleDebug -p ${{env.ANDROID_APP_PATH}}
       
       - name: Run instrumented tests
-        run: ./gradlew build app:connectedAndroidTest
+        run: ./gradlew connectedAndroidTest
         continue-on-error: true
