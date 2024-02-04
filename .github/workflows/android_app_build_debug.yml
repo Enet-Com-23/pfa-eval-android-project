@@ -23,9 +23,6 @@ jobs:
           distribution: 'adopt'
           java-version: '8'
 
-      - name: Build the project
-        run: ./gradlew assembleDebug
-
       - name: Run instrumented tests
         run: ./gradlew app:connectedAndroidTest
         continue-on-error: true
