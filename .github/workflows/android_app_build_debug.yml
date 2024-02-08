@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.branch }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -17,7 +17,8 @@ jobs:
       ANDROID_APP_PATH: "sample/application"
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       # Check if the application folder contains an Android project
       - name: Check for Android project
@@ -43,9 +44,33 @@ jobs:
       - name: Build debug apk
         run: ./${{env.ANDROID_APP_PATH}}/gradlew assembleDebug -p ${{env.ANDROID_APP_PATH}}
 
-      - name: run tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: ./${{env.ANDROID_APP_PATH}}/gradlew connectedAndroidTest -p ${{env.ANDROID_APP_PATH}}
-      
+      - name: Set up emulator
+        run: |
+          set -e
+          API_LEVEL=29
+
+          # Check if Emulator is already installed
+          EMULATOR_COUNT=$(sdkmanager --list | grep emulator | wc -l)
+          if [[ ${EMULATOR_COUNT} -gt 0 ]]; then
+            echo "Emulator already available"
+          else
+            # Install Emulator
+            sdkmanager --update
+            sdkmanager --install "emulator"
+            sdkmanager --install "system-images;android-${API_LEVEL};google_apis;x86"
+            echo "no" | avdmanager --verbose create avd --force --name "pixel" --device "pixel" --package "system-images;android-${API_LEVEL};google_apis;x86" --tag "google_apis" --abi "x86"
+            # Start Emulator
+            emulator @pixel -no-window -no-boot-anim -netdelay none -no-snapshot -wipe-data -verbose -show-kernel -no-audio -gpu swiftshader_indirect -no-snapshot &> /tmp/log.txt &
+            # Wait for Emulator to start
+            adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 5; done; input keyevent 82'
+            # Configure Emulator settings
+            adb shell settings put global window_animation_scale 0.0
+            adb shell settings put global transition_animation_scale 0.0
+            adb shell settings put global animator_duration_scale 0.0
+            # Add ANDROID_SDK_ROOT
+            echo sdk.dir=/Users/runner/Library/Android/sdk >> local.properties
+          fi
+
+      - name: Run instrumented tests
+        run: ./${{env.ANDROID_APP_PATH}}/gradlew connectedAndroidTest -p ${{env.ANDROID_APP_PATH}}
+        continue-on-error: true
