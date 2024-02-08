@@ -43,21 +43,20 @@ jobs:
       - name: Build debug apk
         run: ./${{env.ANDROID_APP_PATH}}/gradlew assembleDebug -p ${{env.ANDROID_APP_PATH}}
 
-      - name: Install Android SDK
-        run: |
-             mkdir -p $HOME/android/sdk
-             wget -q https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip -O sdk-tools.zip
-             unzip -qq sdk-tools.zip -d $HOME/android/sdk
-             echo "export ANDROID_SDK_ROOT=$HOME/android/sdk" >> $HOME/.bashrc
-             echo "export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools" >> $HOME/.bashrc
-             yes | sdkmanager --licenses >/dev/null
-             sdkmanager "platform-tools" "platforms;android-30" "emulator"
+      - name: Set up Android SDK
+        uses: reactivecircus/setup-android@v2
+        with:
+         sdk-platform: 'platforms;android-16' 
 
-      - name: Create AVD
-        run: |
-            echo "no" | avdmanager --verbose create avd --force --name "test_emulator" --package "system-images;android-30;google_apis;x86_64" --tag "google_apis" --abi "x86_64" --device "pixel"
-      - name: Start Emulator
+      - name: Create emulator
+        run: echo no | avdmanager create avd -n test_emulator -k "system-images;android-30;google_apis;x86_64"
+
+      - name: Launch emulator
         run: emulator -avd test_emulator -no-audio -no-window -accel on
+        
+
+      - name: Wait for emulator to start
+        run: adb wait-for-device
         
       
       - name: Run instrumented tests
