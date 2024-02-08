@@ -28,6 +28,19 @@ public class MainActivtyTest {
                 .check(matches(withText("SAY HELLO")));
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Test
     public void testSayHelloButtonActivity() {
         // Launch the MainActivity
