@@ -43,22 +43,9 @@ jobs:
       - name: Build debug apk
         run: ./${{env.ANDROID_APP_PATH}}/gradlew assembleDebug -p ${{env.ANDROID_APP_PATH}}
 
-      - name: Set up Android SDK
-        uses: reactivecircus/setup-android@v2
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
         with:
-         sdk-platform: 'platforms;android-16' 
-
-      - name: Create emulator
-        run: echo no | avdmanager create avd -n test_emulator -k "system-images;android-30;google_apis;x86_64"
-
-      - name: Launch emulator
-        run: emulator -avd test_emulator -no-audio -no-window -accel on
-        
-
-      - name: Wait for emulator to start
-        run: adb wait-for-device
-        
+          api-level: 29
+          script: ./${{env.ANDROID_APP_PATH}}/gradlew connectedAndroidTest -p ${{env.ANDROID_APP_PATH}}
       
-      - name: Run instrumented tests
-        run: ./${{env.ANDROID_APP_PATH}}/gradlew connectedAndroidTest -p ${{env.ANDROID_APP_PATH}}
-        continue-on-error: true
