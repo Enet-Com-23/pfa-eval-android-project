@@ -1,4 +1,4 @@
-name: Android Build Debug and Upload
+name: Android Test 
 
 on:
   push:
@@ -12,9 +12,9 @@ concurrency:
 
 jobs:
   build-and-release:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
-      ANDROID_APP_PATH: application
+      ANDROID_APP_PATH: "sample/application"
 
     steps:
       - uses: actions/checkout@v4
@@ -50,9 +50,7 @@ jobs:
       # Build the debug apk
       - name: Build debug apk
         run: ./${{env.ANDROID_APP_PATH}}/gradlew assembleDebug -p ${{env.ANDROID_APP_PATH}}
-      # Upload the debug apk to GitHub
-      - name: Upload debug apk
-        uses: actions/upload-artifact@v4
+
         with:
-          name: android-debug
-          path: "${{env.ANDROID_APP_PATH}}/app/build/outputs/apk/debug/*"
+          api-level: 29
+          script: ./${{env.ANDROID_APP_PATH}}/gradlew connectedAndroidTest -p ${{env.ANDROID_APP_PATH}}
