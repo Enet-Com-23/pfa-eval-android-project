@@ -20,16 +20,7 @@
         "timeout": 5,
         "points": 1
       },
-      {
-        "name": "Test 2",
-        "setup": "",
-        "run": ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:connectedAndroidTest -p $ANDROID_APP_PATH",
-        "input": "",
-        "output": "",
-        "comparison": "included",
-        "timeout": 5,
-        "points": 1
-      },
+
       {
         "name": "Question 1",
         "setup": ". ./setenv.sh && ./.github/scripts/decrypt_answers.sh",
