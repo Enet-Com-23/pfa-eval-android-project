@@ -1,0 +1,84 @@
+{
+    "tests": [
+      {
+        "name": "Testing App Build",
+        "setup": "",
+        "run": ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:assembleDebug --stacktrace --scan -p $ANDROID_APP_PATH",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 5,
+        "points": 10
+      },
+      {
+        "name": "Test 1",
+        "setup": "",
+        "run": ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:connectedAndroidTest -p $ANDROID_APP_PATH",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 5,
+        "points": 1
+      },
+      {
+        "name": "Test 2",
+        "setup": "",
+        "run": ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:connectedAndroidTest -p $ANDROID_APP_PATH",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 5,
+        "points": 1
+      },
+      {
+        "name": "Question 1",
+        "setup": ". ./setenv.sh && ./.github/scripts/decrypt_answers.sh",
+        "run": ". ./setenv.sh && ./.github/scripts/check_questions.sh 1",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 1,
+        "points": 1
+      },
+      {
+        "name": "Question 2",
+        "setup": ". ./setenv.sh && ./.github/scripts/decrypt_answers.sh",
+        "run": ". ./setenv.sh && ./.github/scripts/check_questions.sh 2",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 1,
+        "points": 1
+      },
+      {
+        "name": "Question 3",
+        "setup": ". ./setenv.sh && ./.github/scripts/decrypt_answers.sh",
+        "run": ". ./setenv.sh && ./.github/scripts/check_questions.sh 3",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 1,
+        "points": 1
+      },
+      {
+        "name": "Question 4",
+        "setup": ". ./setenv.sh && ./.github/scripts/decrypt_answers.sh",
+        "run": ". ./setenv.sh && ./.github/scripts/check_questions.sh 4",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 1,
+        "points": 1
+      },
+      {
+        "name": "Question 5",
+        "setup": ". ./setenv.sh && ./.github/scripts/decrypt_answers.sh",
+        "run": ". ./setenv.sh && ./.github/scripts/check_questions.sh 5",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 1,
+        "points": 1
+      }
+    ]
+  }
