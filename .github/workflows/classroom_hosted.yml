@@ -46,7 +46,7 @@ jobs:
   build:
     name: Autograding
     runs-on: enetcom-cr
-    container: 
+    container:
       image: ghcr.io/khammami/containers/ubnutu-jdk17-android34:latest
       options: --privileged
       env:

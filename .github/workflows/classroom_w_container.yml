@@ -48,10 +48,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [check-android-project]
     if: github.actor != 'github-classroom[bot]'
-    container: 
+    container:
       image: ghcr.io/khammami/containers/ubnutu-jdk17-android34:latest
       options: --privileged
-      volumes: 
+      volumes:
         - /dev/bus/usb:/dev/bus/usb
         - /github/home/.android:/root/.android
     steps:
