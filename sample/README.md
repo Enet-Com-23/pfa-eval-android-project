@@ -17,7 +17,7 @@ Quelles modifications sont apportées lorsque vous ajoutez une deuxième activit
 
 - [ ] La deuxième activité est ajoutée en tant que classe Java. Vous devez toujours ajouter le fichier de mise en page (layout) XML.
 - [ ] Le deuxième fichier de mise en page XML d'activité est créé et une classe Java ajoutée. Vous devez toujours définir la signature de la classe.
-- [ ] La deuxième activité est ajoutée en tant que classe Java, le fichier de présentation (layout) XML est créé et le fichier `AndroidManifest.xml` est modifié pour déclarer une deuxième activité.
+- [X] La deuxième activité est ajoutée en tant que classe Java, le fichier de présentation (layout) XML est créé et le fichier `AndroidManifest.xml` est modifié pour déclarer une deuxième activité.
 - [ ] Le deuxième fichier de présentation (layout) XML d'activité est créé et le fichier `AndroidManifest.xml` est modifié pour déclarer une deuxième activité.
 
 ### **Question 2**
@@ -27,14 +27,14 @@ Que se passe-t-il si vous supprimez les éléments `android:parentActivityName` 
 - [ ] La deuxième activité n'apparaît plus lorsque vous essayez de la démarrer avec une intention (`Intent`) explicite.
 - [ ] Le deuxième fichier de mise en page (layout) XML d'activité est supprimé.
 - [ ] Le bouton Back (Précédent) ne fonctionne plus dans la deuxième activité pour renvoyer l'utilisateur à l'activité principale.
-- [ ] Le bouton Up (Haut) de la barre d'applications n'apparaît plus dans la deuxième activité pour renvoyer l'utilisateur à l'activité parent.
+- [X] Le bouton Up (Haut) de la barre d'applications n'apparaît plus dans la deuxième activité pour renvoyer l'utilisateur à l'activité parent.
 
 ### **Question 3**
 
 Quelle méthode de constructeur utilisez-vous pour créer une nouvelle intention (`Intent`) explicite? Choisissez-en un:
 
 - [ ] `new Intent()`
-- [ ] `new Intent(Context context, Class<?> class)`
+- [X] `new Intent(Context context, Class<?> class)`
 - [ ] `new Intent(String action, Uri uri)`
 - [ ] `new Intent(String action)`
 
@@ -45,7 +45,7 @@ Dans l'application HelloToast (du Travail à faire), comment ajoutez-vous la val
 - [ ] Comme les données d'intention (`Intent`)
 - [ ] Comme `TEXT_REQUEST` de l'intention (`Intent`)
 - [ ] En tant qu'action d'intention (`Intent`)
-- [ ] Comme extra d'intention (`Intent`)
+- [X] Comme extra d'intention (`Intent`)
 
 ### **Question 5**
 
@@ -54,7 +54,7 @@ Dans l'application HelloToast (du Travail à faire), comment afficher le nombre 
 - [ ] Obtenez l'intention (`Intent`) avec laquelle l'activité a été lancée.
 - [ ] Obtenez la valeur actuelle du comptage de l'intention.
 - [ ] Mettez à jour le `TextView` pour le comptage.
-- [ ] Tout ce qui précède.
+- [X] Tout ce qui précède.
 
 ## Soumettez votre application pour la notation
 
