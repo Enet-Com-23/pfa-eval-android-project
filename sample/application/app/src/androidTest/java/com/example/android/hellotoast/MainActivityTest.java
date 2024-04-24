@@ -1,4 +1,4 @@
-package com.example.hellotoast;
+package com.example.android.hellotoast;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.core.app.ActivityScenario;
@@ -7,16 +7,13 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.example.android.hellotoast.MainActivity;
-import com.example.android.hellotoast.R;
-
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
-public class MainActivtyTest {
+public class MainActivityTest {
 
     @Test
     public void testSayHelloButton() {

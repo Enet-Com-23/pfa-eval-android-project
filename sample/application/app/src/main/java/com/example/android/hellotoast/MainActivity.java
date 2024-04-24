@@ -19,11 +19,9 @@ package com.example.android.hellotoast;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Displays two Buttons and a TextView.
