@@ -3,7 +3,7 @@
       {
         "name": "testSayHelloButton",
         "setup": "",
-        "run": ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.example.hellotoast.MainActivtyTest#testSayHelloButton -p $ANDROID_APP_PATH",
+        "run": ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.example.android.hellotoast.MainActivityTest#testSayHelloButton -p $ANDROID_APP_PATH",
         "input": "",
         "output": "",
         "comparison": "included",
@@ -13,7 +13,7 @@
       {
         "name": "testSayHelloButtonActivity",
         "setup": "",
-        "run": ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.example.hellotoast.MainActivtyTest#testSayHelloButtonActivity -p $ANDROID_APP_PATH",
+        "run": ". ./setenv.sh && ./$ANDROID_APP_PATH/gradlew :app:connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.example.android.hellotoast.MainActivityTest#testSayHelloButtonActivity -p $ANDROID_APP_PATH",
         "input": "",
         "output": "",
         "comparison": "included",
