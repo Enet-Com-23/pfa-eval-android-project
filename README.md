@@ -29,6 +29,8 @@ This project automates the entire process, **saving you time and providing faste
 3. Automated checks assess code quality and app functionality.
 4. Detailed feedback is shared with students automatically.
 
+![How GitHub Classroom works](assets/images/how-classroom-works-diagram-english.png)
+
 ## Workflows
 
 [TODO] diagrams
