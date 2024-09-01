@@ -65,7 +65,7 @@ jobs:
 
       # Let gradle action handle all cache reated to gradle operations
       - name: Gradle setup/cache
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
         with:
           build-scan-publish: true
           build-scan-terms-of-service-url: "https://gradle.com/terms-of-service"
